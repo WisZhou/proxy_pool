@@ -24,6 +24,7 @@ DB_TYPE = getenv('db_type', 'SSDB')
 if DB_TYPE == 'SSDB':
     DB_HOST = getenv('ssdb_host', '127.0.0.1')
     DB_PORT = getenv('ssdb_port', '6379')
+    DB_PASSWORD = getenv('ssdb_password', 'your_password')
 elif DB_TYPE == 'MONGODB':
     DB_HOST = getenv('mongodb_host', '127.0.0.1')
     DB_PORT = getenv('mongodb_host', '27017')
@@ -36,7 +37,7 @@ DATABASES = {
         "HOST": DB_HOST,
         "PORT": DB_PORT,
         "NAME": "proxy",
-        "PASSWORD": ""
+        "PASSWORD": DB_PASSWORD,
 
     }
 }
@@ -66,5 +67,5 @@ PROXY_GETTER = [
 
 SERVER_API = {
     "HOST": "0.0.0.0",  # The ip specified which starting the web API
-    "PORT": 5010  # port number to which the server listens to
+    "PORT": 4008,  # port number to which the server listens to
 }
